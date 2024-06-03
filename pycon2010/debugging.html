@@ -1,0 +1,29 @@
+<html>
+<head>
+<script type="text/javascript">
+  window.DLR = {settings: {debug: true}}
+</script>
+<script type="text/javascript" 
+        src="ironpython/dlr.js"></script>
+</head>
+
+<body>
+
+  <i>Note: Open Visual Studio 2010, select "Debug -> Attach to Process",
+    and attach to this browser process. Then you can put breakpoints
+    in this HTML page and it will break on them; try placing a breakpoint
+    in the "say_ouch" method, and then clicking on the text ...</i><br /><br />
+
+<div id="message" style="font-size: 32px">Loading ...</div>
+
+<script type="text/python">
+document.message.innerHTML = "Hello from Python"
+
+def say_ouch(s, e):
+    s.innerHTML = "Ouch!"
+
+document.message.onclick += say_ouch
+</script>
+
+</body>
+</html>
